@@ -2,6 +2,8 @@ const path = require('path');
 const express = require('express');
 const app = express();
 
+//import data from "./users.json"
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hjs');
@@ -19,7 +21,28 @@ app.get('/', (req,res) => {
     title: "Software Design & Architecture",
     name: "Dr. Amr Desouky - Assignment #2"
   });
-});
+})
+
+app.get('/users', (req,res) => {
+  // res.render tells the server to return
+  // predefined html in the views directory
+  // @param1 is the name of the view
+  // @param2 data args passed to view for injection  
+  res.render('users', {
+    
+  });
+})
+
+ 
+
+app.get('/users/list', (req,res) => {
+ 
+  res.json(users);
+
+  });
+
+
+  const users= require('./fixtures/users.json');
 
 // middleware to catch non-existing routes
 app.use((req, res, next) => {

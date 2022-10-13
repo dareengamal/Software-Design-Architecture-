@@ -13,13 +13,30 @@
       $.ajax({
         type: "GET",
         url: '/users/list',
-        success: function(data) {
-          // This callback function will run once
-          // the ajax call as successfully completed
+       
+            success: function(data) {
+        for (var i=0; i<data.length; i++) {
+            var row = $('<tr><td>' + data[i].fname+ '</td><td>' + data[i].lname + '</td><td>' + data[i].handler + '</td></tr>');
+            $('#myTable').append(row);
         }
+    },
+    
       });
     });
-    </script>
+
+
+        </script>
+        
+
+
+
+
+
+
+
+
+
+
     <div>
     <div>
     <nav class="navbar navbar-inverse" style="padding-left:130px;">
@@ -44,4 +61,4 @@
       </table>    
     </div>
   </body>
-  </html>
+  </html> 
